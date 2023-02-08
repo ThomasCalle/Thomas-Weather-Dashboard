@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./SSDSD.css"/>
+    <link rel="stylesheet" href="./Assets/css/style.css"/>
     <script src=""></script>
     <title>Thomas' Weather Dashboard</title>
 
@@ -14,6 +14,17 @@
     <header id="header" class="container">Thomas' Weather Dashboard</header>
     <input type="text" id="search-input">
     <button id="search-button">Search</button>
+     <!-- COLOR MODE -->
+     <form class="color-picker" action="">
+        <fieldset>
+            <legend class="visually-hidden">Pick a color scheme</legend>
+            <label for="light" class="visually-hidden">Light</label>
+            <input type="radio" name="theme" id="light" checked>
+            <label for="dark" class="visually-hidden">Dark theme</label>
+            <input type="radio" id="dark" name="theme">
+        </fieldset>
+    </form>
+
     <!-- create container and leave elemetns empty - create id to target in js
         2. set text content to equal the vlaues in the arrays
         Order from first to last:
@@ -79,10 +90,7 @@
         </section>
 <!-- Section of 5 Day Weather Container Ends -->
 
-
-
-
-    <script src="./javascript.js"></script>
+    <script src="./Assets/js/javascript.js"></script>
     <footer>
         <section class="footer" id="footer">
           <section class="form-footer">
