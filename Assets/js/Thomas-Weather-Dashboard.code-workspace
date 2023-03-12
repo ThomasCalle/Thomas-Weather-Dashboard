@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../../../../Downloads/UTOR-VIRT-FSF-FT-01-2023-U-LOLC-main-06-Server-Side-APIs-02-Challenge/06-Server-Side-APIs/02-Challenge"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5502,
+		"liveServer.settings.multiRootWorkspaceName": "Thomas-Weather-Dashboard"
+	}
+}
