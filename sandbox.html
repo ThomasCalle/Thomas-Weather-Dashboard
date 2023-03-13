@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Weather Search</title>
   </head>
   <body>
-    <header>
-      <h1>Weather Dashboard</h1>
-      <form>
-        <label for="city-input">Enter City:</label>
-        <input type="text" id="city-input" />
-        <button type="submit" id="search-button">Search</button>
-      </form>
-      <div id="search-history">
-        <h2>Search History:</h2>
-        <ul id="history-list"></ul>
-      </div>
-    </header>
-    <main id="weather-box" class="container"></main>
+    <h1>Weather Search</h1>
+    <label for="search-input">Enter a city:</label>
+    <input type="text" id="search-input">
+    <button id="search-button">Search</button>
+    <br>
+    <h2 id="cityday"></h2>
+    <h3 id="cityname"></h3>
+    <p id="temp"></p>
+    <p id="humid"></p>
+    <p id="wind"></p>
+    <img id="weathericon">
+    <p id="displayweather"></p>
     <script src="sandbox.js"></script>
   </body>
 </html>

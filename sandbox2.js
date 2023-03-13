@@ -25,5 +25,8 @@ searchButton.addEventListener("click",()=>{
         temp.textContent = `Temperature; ${data.main.temp}°C`;
         humid.textContent = `Humidity; ${data.main.humidity}%`;
         wind.textContent = `Wind Speed; ${data.main.wind}m/s`;
-        });
-      });
+        weatherDisplay.textContent = `${data.weather[0].description}`;
+    });
+});
+
+

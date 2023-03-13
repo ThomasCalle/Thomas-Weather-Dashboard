@@ -9,8 +9,6 @@ var weatherDisplayEl = document.getElementById("displayweather");
 var weatherIconEl = document.getElementById("weathericon");
 var apiKey = "4019261bd78cd50daccdfd0a8e4719ed";
 
-
-// let localStorageArr = JSON.parse(localStorage.getItem('cityname')) || [];
 function getLocation(city) {
   var locationUrl =
     "https://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -33,9 +31,7 @@ function getLocation(city) {
 
 function getWeather(lat, lon){
     var weatherUrl =
-    "https://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+
-    "&appid=" +
-    apiKey;
+    "https://api.openweathermap.org/data/2.5/forecast?lat="+lat+"&lon="+lon+"&units=metric"+"&lang=english"+"&appid="+apiKey;
   fetch(weatherUrl)
     .then(function (data) {
       return data.json();
@@ -56,16 +52,12 @@ function displayWeather(data) {
 
   // Update the DOM elements with the relevant weather data
   cityDayEl.textContent = city + " (" + date.toLocaleDateString() + ")";
-  cityNameEl.textContent = city;
-  tempEl.textContent = "Temperature: " + temp + " °C";
+  tempEl.textContent = "Temperature: " + temp + "°C";
   humidEl.textContent = "Humidity: " + humid + "%";
-  windEl.textContent = "Wind Speed: " + wind + " MPH";
+  windEl.textContent = "Wind Speed: " + wind + "KM/H";
 }
 
   
-
-
-
 // always leave at bottum
 searchButtonEl.addEventListener("click", function () {
   var searchInput = searchInputEl.value; //"Orlando"

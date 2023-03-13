@@ -11,7 +11,7 @@
     <nav id="navbar" class="navbar"></nav>
 </head>
 <body>
-    <header id="header" class="container">Thomas' Weather Dashboard</header>
+    <header id="header" class="container"><h1>Thomas' Weather Dashboard</h1></header>
     <input type="text" id="search-input">
     <button id="search-button">Search</button>
     <!-- create container and leave elemetns empty - create id to target in js
@@ -24,69 +24,88 @@
             <article class="card-column">
                 <figure class="card-block">
                     <h2 class="header-block">Current Weather</h2>
-                    <button id="displayweahter" onclick="displayWeather(data)">Display Weather</button>
+                    <!-- <button id="displayweahter" onclick="displayWeather(data)">Display Weather</button> -->
                     <aside class="weather-block">
-                        <p id="cityday">day</p>
-                        <p id="cityname">name</p>
+                        <p id="cityday"></p>
+                        <p id="cityname"></p>
                     </aside>
                     <pre class="text-block">
                       <a href="https://openweathermap.org/img/wn/10d@2x.png" target=""><img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" width="" height="" alt=""></a>
-                      <p id="temp">temp</p>
-                      <p id="humid">humid</p>
-                      <p id="wind">wind</p>
+                      <p id="temp">Temperature:</p>
+                      <p id="humid">Humidity:</p>
+                      <p id="wind">Wind:</p>
                     </pre>
                 </figure>
             </article>
+        </section>
             <!-- Start: (5) Day Weather Forecast -->
+            <!-- Day: One -->
+        <section class="row">
             <article class="card-column">
                 <figure class="card-block">
                     <h2 class="header-block">Day: One</h2>
+                    <p id="cityday"></p>
+                    <!-- <p id="cityname">name</p> -->
                     <aside class="weather-block">
-                        <p>Sub Text</p>
+                      <p id="temp">Temerature:</p>
+                      <p id="humid">Humidity:</p>
+                      <p id="wind">Wind:</p>
                     </aside>
                     <pre class="text-block">
                       <a href="" target=""><img src="" width="" height="" alt=""></a>
                     </pre>
                 </figure>
             </article>
+            <!-- Day: Two -->
             <article class="card-column">
                 <figure class="card-block">
                     <h2 class="header-block">Day: Two</h2>
                     <aside class="weather-block">
-                        <p>Sub Text</p>
+                        <p id="temp">Temerature:</p>
+                        <p id="humid">Humidity:</p>
+                        <p id="wind">Wind:</p>
                     </aside>
                     <pre class="text-block">
                       <a href="" target=""><img src="" width="" height="" alt=""></a>
                     </pre>
                 </figure>
             </article>
+            <!-- Day: Three -->
             <article class="card-column">
                 <figure class="card-block">
                     <h2 class="header-block">Day: Three</h2>
                     <aside class="weather-block">
-                        <p>Sub Text</p>
+                        <p id="temp">Temerature:</p>
+                        <p id="humid">Humidity:</p>
+                        <p id="wind">Wind:</p>
                     </aside>
                     <pre class="text-block">
                       <a href="" target=""><img src="" width="" height="" alt=""></a>
                     </pre>
                 </figure>
             </article>
+            <!-- Day: Four -->
             <article class="card-column">
                 <figure class="card-block">
                     <h2 class="header-block">Day: Four</h2>
                     <aside class="weather-block">
-                        <p>Sub Text</p>
+                        <p id="temp">Temerature:</p>
+                        <p id="humid">Humidity:</p>
+                        <p id="wind">Wind:</p>
                     </aside>
                     <pre class="text-block">
                       <a href="" target=""><img src="" width="" height="" alt=""></a>
                     </pre>
                 </figure>
             </article>
+            <!-- Day: Five -->
             <article class="card-column">
                 <figure class="card-block">
                     <h2 class="header-block">Insert: Five</h2>
                     <aside class="weather-block">
-                        <p>Sub Text</p>
+                        <p id="temp">Temerature:</p>
+                        <p id="humid">Humidity:</p>
+                        <p id="wind">Wind:</p>
                     </aside>
                     <pre class="text-block">
                       <a href="" target=""><img src="" width="" height="" alt=""></a>
