@@ -1,13 +1,15 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap'); */
-
 *{
     box-sizing: border-box;
     margin:0;
     padding:0;
 }
+/* Search history */
+#search-history .list-group-item {
+  cursor: pointer;
+}
 
 body{
-    background-image:url('/DALL-E-Thomas-Skyline.png');
+    background-image: url('/images/DALL-E-Thomas-Skyline.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -15,51 +17,32 @@ body{
 
 .container{
     padding: 20px 70px;
-    color:#fff;
 }
 
 .row {
-  display: flex; /* set the display property to flex */
-  flex-wrap: wrap; /* allow items to wrap onto multiple lines */
-  justify-content: center; /* center the items horizontally */
-  align-items: stretch; /* stretch items to fill the container vertically */
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  align-items: stretch; 
 }
 
 .card-column {
-  flex: 1 1 250px; /* set the flex-grow, flex-shrink, and flex-basis properties */
-  margin: 10px; /* add some margin between items */
+  flex: 1 1 250px;
+  margin: 10px;
 }
 
 .card-block {
-  display: flex; /* set the display property to flex */
-  flex-direction: column; /* stack child elements vertically */
-  justify-content: center; /* center child elements horizontally */
-  align-items: center; /* center child elements vertically */
-  padding: 10px; /* add some padding to the element */
-  border: 1px solid rgba(255, 255, 255, 0.454); /* add a border for styling */
-  border-radius: 5px; /* round the corners of the element */
-  text-align: center; /* center the text horizontally */
-  min-height: 300px; /* set a minimum height for the element */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a box-shadow for styling */
-}
-.code-card .card-header {
-  /* use position and negative margins to move title of card over the card's outline and create an overlap effect */
-  position: relative;
-  margin: -4rem 0 1.5rem 0;
-  padding: 0.5rem 1rem;
-  background-color: orange;
-  color: yellow
-  border: 2px red
-  border-radius: 8px;
-  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 10px; 
+  border: 1px solid rgba(255, 255, 255, 0.454);
+  border-radius: 5px; 
+  text-align: center; 
+  min-height: 300px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
-/* set an outer and inner drop shadow on the card to create a glowing effect on hover */
-.code-card:hover,
-.code-card:hover .card-header {
-  box-shadow: inset 0px 0px 8px coral, 0 0 15px yellow
-}
-
-/* using a mobile-first approach, use `min-width` values going from narrow -> wide for a responsive design */
 @media screen and (min-width: 768px) {
 }

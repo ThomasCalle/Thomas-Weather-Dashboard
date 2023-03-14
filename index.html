@@ -14,6 +14,11 @@
     <header id="header" class="container"><h1>Thomas' Weather Dashboard</h1></header>
     <input type="text" id="search-input">
     <button id="search-button">Search</button>
+    <div id="search-history">
+        <h2>Search History:</h2>
+        <ul id="history-list"></ul>
+    </div>
+
     <!-- create container and leave elemetns empty - create id to target in js
         2. set text content to equal the vlaues in the arrays
         Order from first to last:
@@ -30,7 +35,7 @@
                         <p id="cityname"></p>
                     </aside>
                     <pre class="text-block">
-                      <a href="https://openweathermap.org/img/wn/10d@2x.png" target=""><img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" width="" height="" alt=""></a>
+                      <img src="https://openweathermap.org/img/wn/10d@2x.png" id="weather-icon" >
                       <p id="temp">Temperature:</p>
                       <p id="humid">Humidity:</p>
                       <p id="wind">Wind:</p>
@@ -44,12 +49,12 @@
             <article class="card-column">
                 <figure class="card-block">
                     <h2 class="header-block">Day: One</h2>
-                    <p id="cityday"></p>
+                    <p id="cityday1"></p>
                     <!-- <p id="cityname">name</p> -->
                     <aside class="weather-block">
-                      <p id="temp">Temerature:</p>
-                      <p id="humid">Humidity:</p>
-                      <p id="wind">Wind:</p>
+                      <p id="temp1">Temerature:</p>
+                      <p id="humid1">Humidity:</p>
+                      <p id="wind1">Wind:</p>
                     </aside>
                     <pre class="text-block">
                       <a href="" target=""><img src="" width="" height="" alt=""></a>

@@ -24,7 +24,7 @@ searchButton.addEventListener("click",()=>{
         weatherIcon.setAttribute("src", `https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
         temp.textContent = `Temperature; ${data.main.temp}°C`;
         humid.textContent = `Humidity; ${data.main.humidity}%`;
-        wind.textContent = `Wind Speed; ${data.main.wind}m/s`;
+        wind.textContent = `Wind Speed; ${data.main.wind}km/h`;
         weatherDisplay.textContent = `${data.weather[0].description}`;
     });
 });

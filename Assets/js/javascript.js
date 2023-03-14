@@ -51,7 +51,7 @@ function displayWeather(data) {
   var humid = data.list[0].main.humidity;
   var wind = data.list[0].wind.speed;
 
-  console.log(data);
+  console.log("hello",data.list[0]);
 
   // Update the DOM elements with the relevant weather data
   cityDayEl.textContent = city + " (" + date.toLocaleDateString() + ")";
