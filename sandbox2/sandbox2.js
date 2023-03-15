@@ -148,3 +148,36 @@ searchButtonEl.addEventListener("click", function () {
 // const setup = document.querySelector("")
 // 
 // 
+
+// Retrieve city history from local storage, or initialize empty array if not present
+var city_history = JSON.parse(localStorage.getItem("city_history")) || [];
+
+function printCityHistory() {
+  cityHistoryEl.innerHTML = "";
+  for (let i = 0; i < city_history.length; i++) {
+    var cityEl = document.createElement("li");
+    cityEl.textContent = city_history[i];
+    cityHistoryEl.appendChild(cityEl);
+  }
+}
+
+function updateCityHistory(searchInput) {
+  if (city_history.length < 3) {
+    city_history.unshift(searchInput);
+  } else {
+    city_history.length = city_history.length - 1;
+    city_history.unshift(searchInput);
+  }
+  // Save city history to local storage
+  localStorage.setItem("city_history", JSON.stringify(city_history));
+  printCityHistory();
+}
+
+// Load city history on page load
+printCityHistory();
+
+searchButtonEl.addEventListener("click", function () {
+  var searchInput = searchInputEl.value;
+  getLocation(searchInput);
+  updateCityHistory(searchInput);
+});
