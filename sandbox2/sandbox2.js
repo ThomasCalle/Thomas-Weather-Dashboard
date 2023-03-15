@@ -1,35 +1,3 @@
-// var searchInput = document.getElementById("search-input");
-// var searchButton = document.getElementById("search-button");
-// var cityDate = document.getElementById("citydate");
-// var cityName = document.getElementById("cityname");
-// var temp = document.getElementById("temp");
-// var humid = document.getElementById("humid");
-// var wind = document.getElementById("wind");
-// var weatherDisplay = document.getElementById("displayweather");
-// var weatherIcon = document.getElementById("weathericon");
-// var apiKey = "4019261bd78cd50daccdfd0a8e4719ed";
-// const baseURL = "https://api.openweathermap.org/data/2.5/weather?q=";
-
-// searchButton.addEventListener("click",()=>{
-//     const city = searchInput.value.trim();
-//     if(city ===""){
-//         alert("Please enter a city");
-//         return;
-//     }
-//     fetch(`${baseURL}${city}&units=metric&appid=${apiKey}`)
-//     .then((response) => response.json())
-//     .then((data) => {
-//         cityName.textContent = data.name;
-//         cityDate.textContent = new Date().toLocaleDateString("en-us",{weekday:'long'});
-//         weatherIcon.setAttribute("src", `https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
-//         temp.textContent = `Temperature; ${data.main.temp}°C`;
-//         humid.textContent = `Humidity; ${data.main.humidity}%`;
-//         wind.textContent = `Wind Speed; ${data.main.wind}km/h`;
-//         weatherDisplay.textContent = `${data.weather[0].description}`;
-//     });
-// });
-
-
 // VARSITY TUTOR SESSION: 
 // Tutors, suggested approach to handle the array... 
 
@@ -79,13 +47,11 @@ var weatherDisplayEl = document.getElementById("displayweather");
 var weatherIconEl = document.getElementById("weather-icon");
 var apiKey = "4019261bd78cd50daccdfd0a8e4719ed";
 var cities=[];
-var city_history=[3];
+var city_history=[];
 
 var temps=[6];
 var humids=[6];
 var winds=[6];
-
-
 
 function getLocation(city) {
   console.log("hello");
@@ -137,11 +103,9 @@ function displayWeather(data) {
   for (let i=0;i<5;i++){
     cities.push(data.list[i]);
   }
-  //cities.push(data.list[0]);
 
   // Update the DOM elements with the relevant weather data
   cityDayEl.textContent = city + " (" + date.toLocaleDateString() + ")";
-
 
   for (let j=0; j<6; j++){
     tempEls[j].textContent = "Temperature: " + temps[j] + "°C";
@@ -149,10 +113,19 @@ function displayWeather(data) {
     windEls[j].textContent = "Wind Speed: " + winds[j] + "KM/H";
     weatherIconEls[j].setAttribute("src", `https://openweathermap.org/img/w/${data.list[j].weather[0].icon}.png`);
   }
-
-  //weatherIconEl.setAttribute("src", `https://openweathermap.org/img/w/${data.list[0].weather[0].icon}.png`);
 }
-  
+function printCityHistory()
+{
+  cityHistoryEl.innerHTML=""
+  for (let i=0;i<city_history.length;i++){
+  var cityEl = document.createElement("li")
+  cityEl.textContent = city_history[i];
+  cityHistoryEl.appendChild(cityEl)
+
+}
+}
+
+
 // always leave at bottum
 searchButtonEl.addEventListener("click", function () {
   var searchInput = searchInputEl.value; 
@@ -165,6 +138,7 @@ searchButtonEl.addEventListener("click", function () {
     city_history.length= city_history.length-1;
     city_history.unshift(searchInput);
   }
+  printCityHistory();
   //console.log("user hisotry ",city_history);
 });
 
