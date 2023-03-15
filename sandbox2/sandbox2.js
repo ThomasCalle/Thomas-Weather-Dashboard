@@ -91,7 +91,7 @@ function displayWeather(data) {
   // Extract the relevant weather data from the API response
   var city = data.city.name;
   var date = new Date(data.list[0].dt * 1000);
-  cityHistoryEl.textcontext= "toronto";
+  cityHistoryEl.textcontext= "";
   
 
   for (let i=0;i<6;i++){
@@ -114,17 +114,16 @@ function displayWeather(data) {
     weatherIconEls[j].setAttribute("src", `https://openweathermap.org/img/w/${data.list[j].weather[0].icon}.png`);
   }
 }
-function printCityHistory()
-{
-  cityHistoryEl.innerHTML=""
-  for (let i=0;i<city_history.length;i++){
-  var cityEl = document.createElement("li")
-  cityEl.textContent = city_history[i];
-  cityHistoryEl.appendChild(cityEl)
+// function printCityHistory()
+// {
+//   cityHistoryEl.innerHTML=""
+//   for (let i=0;i<city_history.length;i++){
+//   var cityEl = document.createElement("li")
+//   cityEl.textContent = city_history[i];
+//   cityHistoryEl.appendChild(cityEl)
 
-}
-}
-
+// }
+// }
 
 // always leave at bottum
 searchButtonEl.addEventListener("click", function () {
@@ -133,21 +132,16 @@ searchButtonEl.addEventListener("click", function () {
   getLocation(searchInput);
 
   if (city_history.length<3){
+  console.log(city_history);
   city_history.unshift(searchInput);
+  console.log(city_history);
   } else{
     city_history.length= city_history.length-1;
     city_history.unshift(searchInput);
   }
   printCityHistory();
-  //console.log("user hisotry ",city_history);
+  updateCityHistory(city_history);
 });
-
-
-// if(localStorage.getItem()!== null){
-// }
-// const setup = document.querySelector("")
-// 
-// 
 
 // Retrieve city history from local storage, or initialize empty array if not present
 var city_history = JSON.parse(localStorage.getItem("city_history")) || [];
@@ -162,22 +156,23 @@ function printCityHistory() {
 }
 
 function updateCityHistory(searchInput) {
-  if (city_history.length < 3) {
-    city_history.unshift(searchInput);
-  } else {
-    city_history.length = city_history.length - 1;
-    city_history.unshift(searchInput);
-  }
+  // if (city_history.length < 3) {
+  //   city_history.unshift(searchInput);
+  //   console.log(city_history);
+  // } else {
+  //   city_history.length = city_history.length - 1;
+  //   city_history.unshift(searchInput);
+  // }
   // Save city history to local storage
-  localStorage.setItem("city_history", JSON.stringify(city_history));
+  localStorage.setItem("city_history", JSON.stringify(searchInput));
   printCityHistory();
 }
 
 // Load city history on page load
 printCityHistory();
 
-searchButtonEl.addEventListener("click", function () {
-  var searchInput = searchInputEl.value;
-  getLocation(searchInput);
-  updateCityHistory(searchInput);
-});
+// searchButtonEl.addEventListener("click", function () {
+//   var searchInput = searchInputEl.value;
+//   getLocation(searchInput);
+//   updateCityHistory(searchInput);
+// });
