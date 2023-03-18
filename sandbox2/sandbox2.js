@@ -3,9 +3,20 @@
 
 var searchInputEl = document.getElementById("search-input");
 var searchButtonEl = document.getElementById("search-button");
-var cityDayEl = document.getElementById("cityday");
+// var cityDayEl = document.getElementById("cityday");
 var cityNameEl = document.getElementById("cityname");
 var cityHistoryEl = document.getElementById("city-history")
+
+var indexs = [0,7,15,23,31,39];
+
+var cityDayEl = [
+  document.getElementById("cityday"),
+  document.getElementById("cityday1"),
+  document.getElementById("cityday2"),
+  document.getElementById("cityday3"),
+  document.getElementById("cityday4"),
+  document.getElementById("cityday5"),
+];
 
 var tempEls = [
   document.getElementById("temp"), 
@@ -43,6 +54,8 @@ var weatherIconEls = [
   document.getElementById("weather-icon5")
 ];
 
+// Array for the daays 1 -5 
+
 var weatherDisplayEl = document.getElementById("displayweather");
 var weatherIconEl = document.getElementById("weather-icon");
 var apiKey = "4019261bd78cd50daccdfd0a8e4719ed";
@@ -52,6 +65,7 @@ var city_history=[];
 var temps=[6];
 var humids=[6];
 var winds=[6];
+var dates=[6];
 
 function getLocation(city) {
   console.log("hello");
@@ -88,16 +102,19 @@ function getWeather(lat, lon){
 }  
 
 function displayWeather(data) {
+  console.log(data);
+
   // Extract the relevant weather data from the API response
   var city = data.city.name;
-  var date = new Date(data.list[0].dt * 1000);
+  // var date = new Date(data.list[0].dt * 1000);
   cityHistoryEl.textcontext= "";
   
 
   for (let i=0;i<6;i++){
-    temps[i] = data.list[i].main.temp;
-    humids[i] = data.list[i].main.humidity;
-    winds[i] = data.list[i].wind.speed;
+    temps[i] = data.list[indexs[i]].main.temp;
+    humids[i] = data.list[indexs[i]].main.humidity;
+    winds[i] = data.list[indexs[i]].wind.speed;
+    dates[i] = new Date(data.list[indexs[i]].dt * 1000);
   }
 
   for (let i=0;i<5;i++){
@@ -105,12 +122,19 @@ function displayWeather(data) {
   }
 
   // Update the DOM elements with the relevant weather data
-  cityDayEl.textContent = city + " (" + date.toLocaleDateString() + ")";
+  // cityDayEl.textContent = city + " (" + date.toLocaleDateString() + ")";
 
   for (let j=0; j<6; j++){
+    if(j==0){
+      cityDayEl[j].textContent = "City Day: " + city + " " + dates[j].toLocaleDateString()
+    }
+    else{
+      cityDayEl[j].textContent = "City Day: " + dates[j].toLocaleDateString()
+    }
     tempEls[j].textContent = "Temperature: " + temps[j] + "°C";
     humidEls[j].textContent = "Humidity: " + humids[j] + "%";
     windEls[j].textContent = "Wind Speed: " + winds[j] + "KM/H";
+    cityDayEl[j].textContent = "City Day: " + city + " " + dates[j].toLocaleString()
     weatherIconEls[j].setAttribute("src", `https://openweathermap.org/img/w/${data.list[j].weather[0].icon}.png`);
   }
 }
