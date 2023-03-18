@@ -148,10 +148,25 @@ var city_history = JSON.parse(localStorage.getItem("city_history")) || [];
 
 function printCityHistory() {
   cityHistoryEl.innerHTML = "";
+  console.log(cityHistoryEl);
   for (let i = 0; i < city_history.length; i++) {
-    var cityEl = document.createElement("li");
-    cityEl.textContent = city_history[i];
-    cityHistoryEl.appendChild(cityEl);
+    // var cityEl = 
+    const list = document.createElement("li");
+    list.setAttribute("id",city_history[i]);
+    cityHistoryEl.appendChild(list);
+    const container = document.getElementById(city_history[i]);
+    const button = document.createElement("button");
+    button.setAttribute("value",city_history[i]);
+    button.textContent = city_history[i];
+    container.appendChild(button);
+    button.addEventListener("click", function(event){
+    const city = event.target.value;
+    console.log(city);
+    getLocation(city);
+    })
+    // `<li><button value="${city_history[i]}" class="city">${city_history[i]}</button></li>`;
+    // console.log(cityEl);
+    // cityHistoryEl.innerHTML = cityEl;
   }
 }
 
